@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if (!strs.size()) {     //字符串组为空 输出空
+            return "";
+        }                   
+        int len=strs[0].size();     //最长公共前缀小于任意一字符串长度
+        int number=strs.size();
+    
+        for(int i=0;i<len;i++)
+        {
+            char c=strs[0][i];      //用字符串组第一个字符串做对比
+            for(int j=1;j<number;j++)
+            {
+               if(i == strs[j].size() || strs[j][i] != c) {     //第一个字符串所有字符全部对比完成或者第一个不同的字符截止
+                    return strs[0].substr(0, i);
+                }
+            }
+       
+        }  return strs[0];
+    }
+};
