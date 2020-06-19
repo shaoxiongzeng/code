@@ -1,0 +1,43 @@
+class Solution {
+public:
+    bool isValid(string s) {
+    if(s.size()%2==1)       //字符个数为奇数则不能配对
+        return false;
+        if(s.empty())       //字符个数为空则能配对
+        return true;
+        if (s[0] == '}' || s[0] == ']' || s[0] == ')')  //第一个字符为右半边括号则不能配对
+        return false;
+        stack<char> st;
+        for(char c:s)       //遍历栈中字符
+        {
+            if (c=='('||c=='['||c=='{')     
+            st.push(c);     //左半括号入栈
+            else
+            switch(c){
+                case ')':       //右半括号与栈顶元素匹配则栈顶元素出栈，否则失败
+                    if(st.top()=='(')
+                    {st.pop();
+                    break;}
+                    else  
+                    return false;
+                    case ']':
+                    if(st.top()=='[')
+                    {st.pop();
+                    break;}
+                    else 
+                    return false;
+                    case '}':
+                    if(st.top()=='{')
+                    {st.pop();
+                    break;}
+                    else 
+                    return false;
+            }
+        }
+        if(st.empty())      //所有元素出栈则有效，否则无效
+        return true;
+        else 
+        return false;
+        
+    }
+};
