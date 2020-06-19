@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {        
+    int len = nums.size();
+    int count = 0;
+    if(len==0)
+    return 0;
+    for (int i = 1; i < len; i++)       //依次遍历
+    {
+        if (nums[i] == nums[i - 1]) {   //与数组前一个相同，重复计数加一
+            count++;
+        }
+        else
+            nums[i - count] = nums[i];  //减去重复个数即为重新排列后的下标
+    }
+   return len-count;
+   }
+};
