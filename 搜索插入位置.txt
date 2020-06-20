@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int len=nums.size();
+        for(int i=0;i<len;i++){     //依次遍历数组
+            if(nums[i]==target)     //找到则返回当前下标
+            return i;
+            else
+                if(nums[i]>target)  //找到第一个大于target的元素返回下标
+                return i;
+            while(i==len-1)         //不存在大于target的值则返回最后一个位置
+            return len;
+        }
+        return 0;
+    }
+};
