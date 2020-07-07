@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int ans = 0;
+        int n=s.size();
+        for (int i=n-1; i >= 0; i--)    
+        {
+            if(s[i] != ' ')         //从后往前，没有出现空字符结果加一
+            {
+                ans++;
+            }
+            else if (s[i] == ' ')   //如果该位置为空且结果大于0，则退出循环
+            {
+                if (ans > 0)
+                {
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
