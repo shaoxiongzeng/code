@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int n=digits.size();
+        int temp=1;
+        for(int i=n-1;i>=0;i--){
+            digits[i]=digits[i]+temp;
+            if(digits[i]/10==1){        //如果进位，进位数设为1否则为0.
+                temp=1;
+                digits[i]=0;
+            }
+            else temp=0;
+            if(digits[0]==0){           //最高位进位则在数组第一位加1
+             digits.insert(digits.begin(), 1);
+            }
+        }return digits;
+    }
+};
+
+
